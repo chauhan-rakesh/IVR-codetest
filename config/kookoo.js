@@ -62,7 +62,7 @@ module.exports = {
                        _attr: { l: "1", t: ""}
                      },
                      {
-                      playtext: "Enter 1 if you are above 21 years and 2 if below 21 years"
+                      playtext: "Enter 1 if you are above 21 years and 2 if you are below 21 years"
                      }
                    ]}]
                  };
@@ -76,7 +76,7 @@ module.exports = {
                        _attr: { l: "1",t: ""}
                      },
                      {
-                      playtext: "Enter 1 if you are above 18 years and 2 if below 18 years"
+                      playtext: "Enter 1 if you are above 18 years and 2 if you are below 18 years"
                      }
                    ]}]
                  };
