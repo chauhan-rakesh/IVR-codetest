@@ -75,50 +75,37 @@ module.exports = {
           if(gender){
             var genderAge = parseInt(data);
             if (genderAge) {
-              if(genderAge == 1){
+              if(gender == 21 && genderAge==1){
                 res = {
                    response:
                    [{
                      playtext:"You are adult"
                    }]
                  };
-              }else {
-                res = {
-                     response:
-                     [{
-           							_attr: { sid: cid + "$" + gender}
-                      },{
-                       collectdtmf: [ {
-                         _attr: { t: "#"}
-                       },
-                       {
-                        playtext: "Enter 1 if you are above 21 years and 2 if below 21 years followed by #"
-                       }
-                     ]}]
-                   };
-              }
-              if(genderAge == 2){
+              }else if(gender == 18 && genderAge==2){
                 res = {
                     response:
                     [{
                       playtext:"minors not allowed"
                     }]
                   };
-              }else{
-                res = {
-                     response:
-                     [{
-           							_attr: { sid: cid + "$" + gender}
-                      },{
-                       collectdtmf: [ {
-                         _attr: { t: "#"}
-                       },
-                       {
-                        playtext: "Enter 1 if you are above 18 years and 2 if below 18 years followed by #"
-                       }
-                     ]}]
-                   };
-              }
+                }
+              // } {
+              //   res = {
+              //        response:
+              //        [{
+           		// 					_attr: { sid: cid + "$" + 24 }
+              //         },{
+              //          collectdtmf: [ {
+              //            _attr: { t: "#"}
+              //          },
+              //          {
+              //           playtext: "Enter 1 if you are above 21 years and 2 if below 21 years followed by #"
+              //          }
+              //        ]}]
+              //      };
+              // }
+
             }
                 // gender
             }else  if (data.length == 1){
@@ -127,7 +114,7 @@ module.exports = {
               res = {
                    response:
                    [{
-                      _attr: { sid: cid + "$" + gender}
+                      _attr: { sid: cid + "$" + 21}
                     },{
                      collectdtmf: [ {
                        _attr: { t: "#"}
@@ -141,7 +128,7 @@ module.exports = {
               res = {
                    response:
                    [{
-                      _attr: { sid: cid + "$" + gender}
+                      _attr: { sid: cid + "$" + 18}
                     },{
                      collectdtmf: [ {
                        _attr: { t: "#"}
