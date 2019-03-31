@@ -75,14 +75,14 @@ module.exports = {
           if(gender){
             var genderAge = parseInt(data);
             if (genderAge) {
-              if(gender == 21 && genderAge==1){
+              if((gender == 21 && genderAge==1 ) || (gender == 18 && genderAge==1 )  ){
                 res = {
                    response:
                    [{
                      playtext:"You are adult"
                    }]
                  };
-              }else if(gender == 18 && genderAge==2){
+              }else if((gender == 18 && genderAge==2) || (gender == 21 && genderAge==2 ) ){
                 res = {
                     response:
                     [{
