@@ -101,7 +101,7 @@ module.exports = {
                       _attr: { sid: cid + "$" + 21}
                     },{
                      collectdtmf: [ {
-                       _attr: { l: "1" t: ""}
+                       _attr: { l: "1", t: ""}
                      },
                      {
                       playtext: "Enter 1 if you are above 21 years and 2 if below 21 years"
