@@ -3,10 +3,10 @@ var xml = require('xml');
 function getXMLResponse(response) {
 	return xml(response);
 }
-
+var gender = 0;
 module.exports = {
 	getXMLBody : function createResponse(req) {
-    var gender = 0;
+
 		var event = req.query.event;
 		var data = req.query.data || '';
 		var cid = req.query.cid;
