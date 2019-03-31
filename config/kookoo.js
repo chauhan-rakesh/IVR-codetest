@@ -6,6 +6,7 @@ function getXMLResponse(response) {
 
 module.exports = {
 	getXMLBody : function createResponse(req) {
+    var gender = 0;
 		var event = req.query.event;
 		var data = req.query.data || '';
 		var cid = req.query.cid;
@@ -26,37 +27,67 @@ module.exports = {
 						}
 					]}]
 				};
-			}
-			else if(event == 'GotDTMF'){
-				var trainId = req.query.sid.split('$')[1];
-				if(trainId || data) {
-					console.log('SID:: ', req.query.sid);
-					if (trainId) {
-						var trainDay = parseInt(data);
-						if(trainDay || trainDay == 0) {
-							if(trainDay == 1 || trainDay == 2 || trainDay == 3) {
-								var day = ['Yesterday', 'Today', 'Tomorrow'];
-								res = {
-									response:
-									[{
-										playtext:"Hey male"
-									}]
-								};
-							}
-						}
-					} else {
-			res = {
-				response:
-				[{
-					hangup: ''
-				}
-			]
-		};
-	}
-}
-}
-	return getXMLResponse(res);
-}
+			}else if (event == 'GotDTMF') {
+        if(data){
+          var adult = parseInt(data);
+          if(gender == 0){
+            var gender = parseInt(data);
+            if(gender == 1 ){
+              res = {
+                response:
+                {
+                  collectdtmf: [ {
+                    _attr: { t: "#"}
+                  },
+                  {
+                   playtext: "Enter 1 if you are above 21 years and 2 if below 21 years followed by #"
+                  }
+                ]}
+              };
+            }else if(gender == 2){
+              res = {
+                response:
+                {
+                  collectdtmf: [ {
+                    _attr: { t: "#"}
+                  },
+                  {
+                   playtext: "Enter 1 if you are above 18 years and 2 if below 18 years followed by #"
+                  }
+                ]}
+              };
+            }
+          }else if (adult == 1) {
+            res = {
+              response:
+              [{
+                playtext:"You are adult"
+              }]
+            };
+          }else{
+            res = {
+              response:
+              [{
+                playtext:"minors not allowed"
+              }]
+            };
+          }
 
+        }
+
+      }
+
+
+}
+else {
+  res = {
+    response:
+    [{
+      hangup: ''
+    }
+  ]
+};
+}
+return getXMLResponse(res);
 }
 }
