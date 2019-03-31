@@ -30,48 +30,6 @@ module.exports = {
 			}else if (event == 'GotDTMF') {
         var gender = req.query.sid.split('$')[1];
         if(data){
-          // if(gender){
-          //     res = {
-          //       response:
-          //       [{
-          //         collectdtmf: [ {
-          //           _attr: { t: "#"}
-          //         },
-          //         {
-          //          playtext: "Enter 1 if you are above 21 years and 2 if below 21 years followed by #"
-          //         }
-          //       ]}]
-          //     };
-          //   }else if(gender == 2){
-          //     res = {
-          //       response:
-          //       [{
-					// 				_attr: { sid: cid + "$" + gender}
-					// 			},{
-          //         collectdtmf: [ {
-          //           _attr: { t: "#"}
-          //         },
-          //         {
-          //          playtext: "Enter 1 if you are above 18 years and 2 if below 18 years followed by #"
-          //         }
-          //       ]}]
-          //     };
-          //   }
-          // else if () {
-          //   res = {
-          //     response:
-          //     [{
-          //       playtext:"You are adult"
-          //     }]
-          //   };
-          // }else{
-          //   res = {
-          //     response:
-          //     [{
-          //       playtext:"minors not allowed"
-          //     }]
-          //   };
-          // }
           if(gender){
             var genderAge = parseInt(data);
             if (genderAge) {
@@ -137,7 +95,7 @@ module.exports = {
 
       }
 
-
+}
 }
 else {
   res = {
@@ -149,6 +107,6 @@ else {
 };
 }
 return getXMLResponse(res);
-}
+
 }
 }
