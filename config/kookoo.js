@@ -20,18 +20,19 @@ module.exports = {
 					},
 					{
 						collectdtmf: [ {
-							_attr: { t: "#"}
+							_attr: { t: ""}
 						},
 						{
-							playtext: 'enter 1 for male and 2 for female followed by #'
+							playtext: 'enter 1 for male and 2 for female followed by '
 						}
 					]}]
 				};
 			}else if (event == 'GotDTMF') {
         if(data){
           var adult = parseInt(data);
-          if(gender == 0){
-            var gender = parseInt(data);
+          var gender = parseInt(data);
+          if(gender == 1 ){
+
             if(gender == 1 ){
               res = {
                 response:
