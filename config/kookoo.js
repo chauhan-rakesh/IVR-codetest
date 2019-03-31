@@ -28,52 +28,100 @@ module.exports = {
 					]}]
 				};
 			}else if (event == 'GotDTMF') {
+        var gender = req.query.sid.split('$')[1];
         if(data){
-          var adult = parseInt(data);
-          var gender = parseInt(data);
-          if(gender == 0){
-
-            if(gender == 1 ){
-              res = {
-                response:
-                [{
-                  collectdtmf: [ {
-                    _attr: { t: "#"}
-                  },
-                  {
-                   playtext: "Enter 1 if you are above 21 years and 2 if below 21 years followed by #"
-                  }
-                ]}]
-              };
-            }else if(gender == 2){
-              res = {
-                response:
-                [{
-                  collectdtmf: [ {
-                    _attr: { t: "#"}
-                  },
-                  {
-                   playtext: "Enter 1 if you are above 18 years and 2 if below 18 years followed by #"
-                  }
-                ]}]
-              };
+          // if(gender){
+          //     res = {
+          //       response:
+          //       [{
+          //         collectdtmf: [ {
+          //           _attr: { t: "#"}
+          //         },
+          //         {
+          //          playtext: "Enter 1 if you are above 21 years and 2 if below 21 years followed by #"
+          //         }
+          //       ]}]
+          //     };
+          //   }else if(gender == 2){
+          //     res = {
+          //       response:
+          //       [{
+					// 				_attr: { sid: cid + "$" + gender}
+					// 			},{
+          //         collectdtmf: [ {
+          //           _attr: { t: "#"}
+          //         },
+          //         {
+          //          playtext: "Enter 1 if you are above 18 years and 2 if below 18 years followed by #"
+          //         }
+          //       ]}]
+          //     };
+          //   }
+          // else if () {
+          //   res = {
+          //     response:
+          //     [{
+          //       playtext:"You are adult"
+          //     }]
+          //   };
+          // }else{
+          //   res = {
+          //     response:
+          //     [{
+          //       playtext:"minors not allowed"
+          //     }]
+          //   };
+          // }
+          if(gender){
+            var genderAge = parseInt(data);
+            if (genderAge) {
+              if(genderAge == 1){
+                res = {
+                   response:
+                   [{
+                     playtext:"You are adult"
+                   }]
+                 };
+              }else {
+                res = {
+                     response:
+                     [{
+           							_attr: { sid: cid + "$" + gender}
+                      },{
+                       collectdtmf: [ {
+                         _attr: { t: "#"}
+                       },
+                       {
+                        playtext: "Enter 1 if you are above 21 years and 2 if below 21 years followed by #"
+                       }
+                     ]}]
+                   };
+              }
+              if(genderAge == 2){
+                res = {
+                    response:
+                    [{
+                      playtext:"minors not allowed"
+                    }]
+                  };
+              }else{
+                res = {
+                     response:
+                     [{
+           							_attr: { sid: cid + "$" + gender}
+                      },{
+                       collectdtmf: [ {
+                         _attr: { t: "#"}
+                       },
+                       {
+                        playtext: "Enter 1 if you are above 18 years and 2 if below 18 years followed by #"
+                       }
+                     ]}]
+                   };
+              }
             }
-          }else if (adult == 1) {
-            res = {
-              response:
-              [{
-                playtext:"You are adult"
-              }]
-            };
-          }else{
-            res = {
-              response:
-              [{
-                playtext:"minors not allowed"
-              }]
-            };
-          }
 
+          }
         }
 
       }
