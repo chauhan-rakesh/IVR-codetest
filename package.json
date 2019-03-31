@@ -39,6 +39,9 @@
     "request": "latest",
     "serve-favicon": "~2.3.0",
     "simple-encryptor": "latest",
-    "underscore": "latest"
+    "underscore": "latest",
+    "http": "0.0.0",
+    "xml": "^1.0.1",
+    "xmlhttprequest": "^1.8.0"
   }
 }
