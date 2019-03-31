@@ -84,7 +84,7 @@ module.exports = {
               res = {
                     response:
                     [{
-                      playtext:"wrong data entered"
+                      playtext:"wrong value entered"
                     }]
                   };
             }
