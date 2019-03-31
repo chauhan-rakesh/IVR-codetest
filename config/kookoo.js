@@ -37,14 +37,14 @@ module.exports = {
                 res = {
                    response:
                    [{
-                     playtext:"You are adult"
+                     playtext: "You are an adult"
                    }]
                  };
               }else if((gender == 18 && genderAge==2) || (gender == 21 && genderAge==2 ) ){
                 res = {
                     response:
                     [{
-                      playtext:"minors not allowed"
+                      playtext:"Minors are not allowed"
                     }]
                   };
                 }
