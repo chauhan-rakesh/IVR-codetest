@@ -20,10 +20,10 @@ module.exports = {
 					},
 					{
 						collectdtmf: [ {
-							_attr: { t: "#"}
+							_attr: { l:"1",t: ""}
 						},
 						{
-							playtext: 'enter 1 for male and 2 for female followed by #'
+							playtext: 'enter 1 for male and 2 for female'
 						}
 					]}]
 				};
@@ -101,10 +101,10 @@ module.exports = {
                       _attr: { sid: cid + "$" + 21}
                     },{
                      collectdtmf: [ {
-                       _attr: { t: ""}
+                       _attr: { l: "1" t: ""}
                      },
                      {
-                      playtext: "Enter 1 if you are above 21 years and 2 if below 21 years followed by #"
+                      playtext: "Enter 1 if you are above 21 years and 2 if below 21 years"
                      }
                    ]}]
                  };
@@ -115,10 +115,10 @@ module.exports = {
                       _attr: { sid: cid + "$" + 18}
                     },{
                      collectdtmf: [ {
-                       _attr: { t: "#"}
+                       _attr: { l: "1",t: ""}
                      },
                      {
-                      playtext: "Enter 1 if you are above 18 years and 2 if below 18 years followed by #"
+                      playtext: "Enter 1 if you are above 18 years and 2 if below 18 years"
                      }
                    ]}]
                  };
