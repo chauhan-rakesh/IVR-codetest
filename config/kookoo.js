@@ -120,8 +120,48 @@ module.exports = {
                    };
               }
             }
+                // gender
+            }else  if (data.length == 1){
+						var gender = parseInt(data);
+						if(gender == 1) {
+              res = {
+                   response:
+                   [{
+                      _attr: { sid: cid + "$" + gender}
+                    },{
+                     collectdtmf: [ {
+                       _attr: { t: "#"}
+                     },
+                     {
+                      playtext: "Enter 1 if you are above 21 years and 2 if below 21 years followed by #"
+                     }
+                   ]}]
+                 };
+						}else if(gender == 2) {
+              res = {
+                   response:
+                   [{
+                      _attr: { sid: cid + "$" + gender}
+                    },{
+                     collectdtmf: [ {
+                       _attr: { t: "#"}
+                     },
+                     {
+                      playtext: "Enter 1 if you are above 18 years and 2 if below 18 years followed by #"
+                     }
+                   ]}]
+                 };
+						}else {
+              res = {
+                    response:
+                    [{
+                      playtext:"wrong data entered"
+                    }]
+                  };
+            }
 
-          }
+
+
         }
 
       }
@@ -138,5 +178,6 @@ else {
 };
 }
 return getXMLResponse(res);
+}
 }
 }
