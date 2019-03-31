@@ -20,10 +20,10 @@ module.exports = {
 					},
 					{
 						collectdtmf: [ {
-							_attr: { t: ""}
+							_attr: { t: "#"}
 						},
 						{
-							playtext: 'enter 1 for male and 2 for female followed by '
+							playtext: 'enter 1 for male and 2 for female followed by #'
 						}
 					]}]
 				};
@@ -31,31 +31,31 @@ module.exports = {
         if(data){
           var adult = parseInt(data);
           var gender = parseInt(data);
-          if(gender == 1 ){
+          if(gender == 0){
 
             if(gender == 1 ){
               res = {
                 response:
-                {
+                [{
                   collectdtmf: [ {
                     _attr: { t: "#"}
                   },
                   {
                    playtext: "Enter 1 if you are above 21 years and 2 if below 21 years followed by #"
                   }
-                ]}
+                ]}]
               };
             }else if(gender == 2){
               res = {
                 response:
-                {
+                [{
                   collectdtmf: [ {
                     _attr: { t: "#"}
                   },
                   {
                    playtext: "Enter 1 if you are above 18 years and 2 if below 18 years followed by #"
                   }
-                ]}
+                ]}]
               };
             }
           }else if (adult == 1) {
