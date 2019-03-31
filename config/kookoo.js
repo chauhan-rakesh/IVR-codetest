@@ -90,22 +90,6 @@ module.exports = {
                     }]
                   };
                 }
-              // } {
-              //   res = {
-              //        response:
-              //        [{
-           		// 					_attr: { sid: cid + "$" + 24 }
-              //         },{
-              //          collectdtmf: [ {
-              //            _attr: { t: "#"}
-              //          },
-              //          {
-              //           playtext: "Enter 1 if you are above 21 years and 2 if below 21 years followed by #"
-              //          }
-              //        ]}]
-              //      };
-              // }
-
             }
                 // gender
             }else  if (data.length == 1){
@@ -117,7 +101,7 @@ module.exports = {
                       _attr: { sid: cid + "$" + 21}
                     },{
                      collectdtmf: [ {
-                       _attr: { t: "#"}
+                       _attr: { t: ""}
                      },
                      {
                       playtext: "Enter 1 if you are above 21 years and 2 if below 21 years followed by #"
